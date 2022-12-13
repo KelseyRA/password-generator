@@ -8,11 +8,6 @@ var specialCharacters = ["*", "&", "%", "$", "#","@", "!"];
 var lowercaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppercaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-console.log(numbers);
-console.log(specialCharacters)
-console.log(lowercaseLetters);
-console.log(uppercaseLetters);
-
 // Variables for user questions.
 
 var includeLowercaseLetters;
@@ -36,17 +31,15 @@ function generatePassword() {
   // User must pick a length of the password 8-128 characters
 
   var numberOfCharacters = (prompt("How many characters would you like your password to contain?"));
- 
-  numberOfCharacters = numberOfCharacters;
+
+   numberOfCharacters = numberOfCharacters;
  
 // Check to make sure the user has entered a valid length
 
 if (numberOfCharacters < 8 || numberOfCharacters > 128) {
-    alert("Password must contain at least 8 characters and no more than 128");
+    alert("Password must contain at least 8 characters and no more than 128.");
     numberOfCharacters = (prompt("How many characters would you like your password to contain?"));
   }
-
-  console.log(numberOfCharacters);
 
   // User selects 'ok' or 'cancel' to indicate if that want to include the certain types of characters
 
@@ -55,15 +48,11 @@ if (numberOfCharacters < 8 || numberOfCharacters > 128) {
   includeNumbers = confirm("Do you want to add numbers?");
   includeSpecialCharacters = confirm("Do you want to include special characters?");
 
-  console.log(includeLowercaseLetters);
-  console.log(includeUppercaseLetters);
-  console.log(includeNumbers);
-  console.log(includeSpecialCharacters);
 
   // If user selects cancel for all prompts an alert will be shared then the questions will be asked again.
 
   while (includeLowercaseLetters === false && includeUppercaseLetters === false && includeNumbers === false && includeSpecialCharacters === false) {
-    alert("You have not selected any types of characters a password cannot be generated");
+    alert("You have not selected any types of characters a password cannot be generated.");
     includeLowercaseLetters = confirm("Do you want to add lowercase letter?");
     includeUppercaseLetters = confirm("Do you want to add uppercase letters?");
     includeNumbers = confirm("Do you want to add numbers?");
@@ -73,23 +62,21 @@ if (numberOfCharacters < 8 || numberOfCharacters > 128) {
     if (includeLowercaseLetters === true) {
       passwordCharacters = passwordCharacters.concat(lowercaseLetters);
     }
-    console.log(passwordCharacters);
 
     if (includeUppercaseLetters === true) {
       passwordCharacters = passwordCharacters.concat(uppercaseLetters);
     }
 
-    console.log(passwordCharacters);
     
     if (includeNumbers === true) {
       passwordCharacters = passwordCharacters.concat(numbers);
     }
 
-    console.log(passwordCharacters);
 
     if (includeSpecialCharacters === true) {
       passwordCharacters = passwordCharacters.concat(specialCharacters);
     }
+
 
     // a password is created with all indicated characters and the length entered
     
@@ -104,13 +91,12 @@ if (numberOfCharacters < 8 || numberOfCharacters > 128) {
 
 }
 
-// This password is then displayed for the user to see
+// The password is then displayed for the user to see
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-// call other function to make it appear on the screen
 }
 
 
